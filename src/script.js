@@ -1,3 +1,31 @@
+// Display the city name on the page
+function show(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let humidity = Math.round(response.data.main.humidity);
+  let realFeels = Math.round(response.data.main.feels_like);
+  let wind = Math.round(response.data.wind.speed);
+  let icon = response.data.weather[0].icon;
+
+  let temperatureElement = document.querySelector("#temperature");
+  let humidityElement = document.querySelector("#humidity");
+  let realFealsElement = document.querySelector("#feelsLike");
+  let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = `${temperature}°C`;
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  windElement.innerHTML = `Wind: ${wind}km/h`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+}
+let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+let city = "Rivne";
+let apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiWeather).then(show);
+
 //  Display the current date and time
 let month = [
   "January",
@@ -104,14 +132,31 @@ function ourForm(event) {
 let formCity = document.querySelector("#city-form");
 formCity.addEventListener("submit", ourForm);
 
-//BONUS. Display and the city and current temperature using the OpenWeather API.
+//Display and the city and current temperature using the OpenWeather API.
 function showNameCity(response) {
   let name = response.data.name;
-  let place = document.querySelector("#city");
-  place.innerHTML = name;
   let temperature = Math.round(response.data.main.temp);
+  let humidity = Math.round(response.data.main.humidity);
+  let realFeels = Math.round(response.data.main.feels_like);
+  let wind = Math.round(response.data.wind.speed);
+  let icon = response.data.weather[0].icon;
+
+  let place = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
+  let humidityElement = document.querySelector("#humidity");
+  let realFealsElement = document.querySelector("#feelsLike");
+  let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
+
+  place.innerHTML = name;
   temperatureElement.innerHTML = `${temperature}°`;
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  windElement.innerHTML = `Wind: ${wind}km/h`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 
 function showPosition(position) {

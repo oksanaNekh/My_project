@@ -5,18 +5,32 @@ form {
 
 ul {
   list-style: none;
-  line-height: 50px;
-  font-size: 20px;
+  line-height: 30px;
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  color: #6c717c;
+  margin: 50% auto;
 }
 h1 {
   text-align: center;
+  color: #053278;
+  font-family: "Mitr", sans-serif;
+}
+h2 {
+  font-family: "Poppins", sans-serif;
+  color: #6c717c;
+  font-size: 22px;
+}
+body {
+  background-image: url("https://torange.biz/photofxnew/1/HD/clear-sky-1049.jpg");
 }
 
 .all {
   border: 1px solid black;
-  border-radius: 10%;
-  padding: 100px;
-  margin: 150px 200px 10px 200px;
+  border-radius: 2%;
+  padding: 30px;
+  margin: 150px 300px 10px;
+  background-color: #d7e5f2;
 }
 .small {
   padding: 10px;
@@ -24,8 +38,12 @@ h1 {
 }
 .feture {
   text-align: center;
-  font-size: 20px;
-  margin-top: 40px;
+  color: #6c717c;
+  font-size: 17px;
+  margin-top: 20px;
+  border: 1px solid #6c717c;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
 }
 .date {
   font-weight: normal;
@@ -41,15 +59,18 @@ h1 {
   font-size: 40px;
   text-align: center;
   display: block;
-  /* line-height: 40px; */
 }
 .units {
   text-align: center;
   display: block;
 }
 #current-location-button {
-  width: 30%;
   float: right;
+  background-color: #053278;
+  color: #f9fffe;
+  padding: 1px 50px;
+  border: 1px solid #053278;
+  border-radius: 5px;
 }
 #city-form {
   display: inline-block;
@@ -58,4 +79,11 @@ h1 {
   display: block;
   margin: 0 auto;
   padding: 0;
+}
+#searchButtom {
+  background-color: #053278;
+  color: #f9fffe;
+  padding: 1px 50px;
+  border: 1px solid #053278;
+  border-radius: 5px;
 }

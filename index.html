@@ -22,34 +22,34 @@
               </button>
         <form id="city-form">
           <input id="enter-city" type="text" placeholder="Enter a city..." />
-          <input type="submit" value="Search" />
+          <input id="searchButtom" type="submit" value="Search" />
         </form>
         
         <div class="row">
           <div class="col-4 mx-auto" style="width: 200px">
             <h1 id="city">
-              RIVNE
+              Rivne
               </h1>
               <h2 class="date">
-                <span id="currentDay">Tuesday</span> <br />
-                <span id="currentDate">9 august 2022</span> <br />
-                <span id="currentHour">20:00</span>
+                <span id="currentDay"></span> <br />
+                <span id="currentDate"></span> <br />
+                <span id="currentHour"></span>
               </h2>
             </h1>
           </div>
           <div class="col-4 mx-auto" style="width: 200px">
-            <span class="temperature" id="temperature"> 17°</span>
+            <span class="temperature" id="temperature"></span>
             <span class="units">
-                  <a href="#" id="celsius-link">°C</a> /
-                  <a href="#" id="fahrenheit-link">°F</a>
+                  <a href="#" id="celsius-link"></a> 
+                  <a href="#" id="fahrenheit-link"></a>
             </span>
             <img src="" id="icon">
           </div>
-          <div class="col-4 mx-auto" style="width: 200px">
+          <div class="col-4 mx-auto" style="width: 220px">
             <ul>
-              <li><strong id="wind">Wind:</strong></li>
-              <li><strong id="humidity">Humidity:</strong></li>
-              <li><strong id="feelsLike">Real feels:</strong></li>
+              <li><span id="wind"></span></li>
+              <li><span id="humidity"></span></li>
+              <li><span id="feelsLike"></span></li>
             </ul>
           </div>
         </div>
@@ -80,6 +80,13 @@
               Sat<br />
               🌤<br />
               19°C
+            </div>
+          </div>
+          <div class="col">
+            <div class="feture">
+              Sun<br />
+              ☀️<br />
+              22°C
             </div>
           </div>
           <div class="col">
