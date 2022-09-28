@@ -15,7 +15,7 @@ h1 {
 .all {
   border: 1px solid black;
   border-radius: 10%;
-  padding: 50px;
+  padding: 100px;
   margin: 150px 200px 10px 200px;
 }
 .small {
@@ -38,10 +38,10 @@ h1 {
   font-size: 30px;
 }
 .temperature {
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
   display: block;
-  line-height: 70px;
+  /* line-height: 40px; */
 }
 .units {
   text-align: center;
@@ -53,4 +53,9 @@ h1 {
 }
 #city-form {
   display: inline-block;
+}
+#icon {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
 }

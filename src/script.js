@@ -21,7 +21,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saterday",
+  "Saturday",
 ];
 
 let now = new Date();
@@ -70,8 +70,25 @@ fah.addEventListener("click", fahrenheit);
 // Display the city name on the page after the user submits the form
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
+  let humidity = Math.round(response.data.main.humidity);
+  let realFeels = Math.round(response.data.main.feels_like);
+  let wind = Math.round(response.data.wind.speed);
+  let icon = response.data.weather[0].icon;
+
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `⛅️ ${temperature}°`;
+  let humidityElement = document.querySelector("#humidity");
+  let realFealsElement = document.querySelector("#feelsLike");
+  let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = `${temperature}°`;
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  windElement.innerHTML = `Wind: ${wind}km/h`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 function ourForm(event) {
   event.preventDefault();
@@ -94,7 +111,7 @@ function showNameCity(response) {
   place.innerHTML = name;
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `⛅️ ${temperature}°`;
+  temperatureElement.innerHTML = `${temperature}°`;
 }
 
 function showPosition(position) {
