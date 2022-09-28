@@ -6,13 +6,15 @@ function show(response) {
   let wind = Math.round(response.data.wind.speed);
   let icon = response.data.weather[0].icon;
 
+  celElement = Math.round(response.data.main.temp);
+
   let temperatureElement = document.querySelector("#temperature");
   let humidityElement = document.querySelector("#humidity");
   let realFealsElement = document.querySelector("#feelsLike");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = `${temperature}°C`;
+  temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
@@ -76,25 +78,6 @@ function ourDate() {
 }
 ourDate();
 
-// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit
-
-function celsius() {
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML = "⛅️ 17°";
-}
-
-let cel = document.querySelector("#celsius-link");
-cel.addEventListener("click", celsius);
-
-function fahrenheit() {
-  let temp = document.querySelector("#temperature");
-  let number = 17;
-  temp.innerHTML = `⛅️ ${Math.round((number * 9) / 5 + 32)}°`;
-}
-
-let fah = document.querySelector("#fahrenheit-link");
-fah.addEventListener("click", fahrenheit);
-
 // Display the city name on the page after the user submits the form
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -103,13 +86,15 @@ function showTemperature(response) {
   let wind = Math.round(response.data.wind.speed);
   let icon = response.data.weather[0].icon;
 
+  celElement = Math.round(response.data.main.temp);
+
   let temperatureElement = document.querySelector("#temperature");
   let humidityElement = document.querySelector("#humidity");
   let realFealsElement = document.querySelector("#feelsLike");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = `${temperature}°`;
+  temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
@@ -141,6 +126,8 @@ function showNameCity(response) {
   let wind = Math.round(response.data.wind.speed);
   let icon = response.data.weather[0].icon;
 
+  celElement = Math.round(response.data.main.temp);
+
   let place = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let humidityElement = document.querySelector("#humidity");
@@ -149,7 +136,7 @@ function showNameCity(response) {
   let iconElement = document.querySelector("#icon");
 
   place.innerHTML = name;
-  temperatureElement.innerHTML = `${temperature}°`;
+  temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
@@ -174,3 +161,26 @@ function showLocation() {
 
 let buttonElement = document.querySelector("#current-location-button");
 buttonElement.addEventListener("click", showLocation);
+
+// Display temperature in Celsius and add a link to convert it to Fahrenheit
+
+let celElement = null;
+function celsius() {
+  let temp = document.querySelector("#temperature");
+  cel.classList.add("active");
+  fah.classList.remove("active");
+  temp.innerHTML = celElement;
+}
+
+function fahrenheit() {
+  let temp = document.querySelector("#temperature");
+  cel.classList.remove("active");
+  fah.classList.add("active");
+  temp.innerHTML = Math.round((celElement * 9) / 5 + 32);
+}
+
+let cel = document.querySelector("#celsius-link");
+cel.addEventListener("click", celsius);
+
+let fah = document.querySelector("#fahrenheit-link");
+fah.addEventListener("click", fahrenheit);
