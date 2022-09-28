@@ -16,7 +16,7 @@ function show(response) {
 
   temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  realFealsElement.innerHTML = `Real feels: ${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   iconElement.setAttribute(
     "src",
@@ -96,7 +96,7 @@ function showTemperature(response) {
 
   temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  realFealsElement.innerHTML = `Real feels: ${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   iconElement.setAttribute(
     "src",
@@ -138,7 +138,7 @@ function showNameCity(response) {
   place.innerHTML = name;
   temperatureElement.innerHTML = temperature;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  realFealsElement.innerHTML = `Real feels:${realFeels}°C`;
+  realFealsElement.innerHTML = `Real feels: ${realFeels}°C`;
   windElement.innerHTML = `Wind: ${wind}km/h`;
   iconElement.setAttribute(
     "src",
