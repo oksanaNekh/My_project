@@ -102,10 +102,12 @@ body {
   color: #6c717c;
   font-size: 16px;
   margin-top: 20px;
+}
 
-  /* border: 1px solid #6c717c;
+.col-2 {
+  border: 1px solid #6c717c;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px; */
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
 }
 .weather-forecast-temperature-min {
   opacity: 0.6;

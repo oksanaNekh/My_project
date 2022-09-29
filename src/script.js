@@ -1,4 +1,56 @@
-// Display the city name on the page
+// Add weather forecast
+function formatDay(timestamp) {
+  let data = new Date(timestamp * 1000);
+  let day = data.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+    
+      <div class="col-2">
+        <div class="forecast-data">${formatDay(forecastDay.dt)}</div>
+        <img
+          alt="icon"
+          width="36"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+        />
+        <br />
+        <div class="=forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span> |
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
+      </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+// Display the city name on the page and weather forecast
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "49b631c45785fe73d2a88477803dea22";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function show(response) {
   let temperature = Math.round(response.data.main.temp);
   let humidity = Math.round(response.data.main.humidity);
@@ -22,6 +74,8 @@ function show(response) {
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 let city = "Rivne";
@@ -102,6 +156,7 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
+  getForecast(response.data.coord);
 }
 function ourForm(event) {
   event.preventDefault();
@@ -117,7 +172,8 @@ function ourForm(event) {
 let formCity = document.querySelector("#city-form");
 formCity.addEventListener("submit", ourForm);
 
-//Display and the city and current temperature using the OpenWeather API.
+//Display and the city and current temperature using the OpenWeather API
+
 function showNameCity(response) {
   let name = response.data.name;
   let temperature = Math.round(response.data.main.temp);
@@ -184,33 +240,3 @@ cel.addEventListener("click", celsius);
 
 let fah = document.querySelector("#fahrenheit-link");
 fah.addEventListener("click", fahrenheit);
-
-// Add weather forecast
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    
-      <div class="col-2">
-        <div class="forecast-data">${day}</div>
-        <img
-          alt="icon"
-          width="36"
-          src="http://openweathermap.org/img/wn/01d@2x.png"
-        />
-        <br />
-        <div class="=forecast-temperatures">
-          <span class="weather-forecast-temperature-max"> 18° </span> |
-          <span class="weather-forecast-temperature-min"> 12° </span>
-        </div>
-      </div>`;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-displayForecast();
