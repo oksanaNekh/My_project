@@ -184,3 +184,33 @@ cel.addEventListener("click", celsius);
 
 let fah = document.querySelector("#fahrenheit-link");
 fah.addEventListener("click", fahrenheit);
+
+// Add weather forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    
+      <div class="col-2">
+        <div class="forecast-data">${day}</div>
+        <img
+          alt="icon"
+          width="36"
+          src="http://openweathermap.org/img/wn/01d@2x.png"
+        />
+        <br />
+        <div class="=forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span> |
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();

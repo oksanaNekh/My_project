@@ -17,35 +17,30 @@
   <body>
     <div class="container">
       <div class="all">
-        <button id="current-location-button">
-                Current
-              </button>
+        <button id="current-location-button">Current</button>
         <form id="city-form">
           <input id="enter-city" type="text" placeholder="Enter a city..." />
           <input id="searchButtom" type="submit" value="Search" />
         </form>
-        
+
         <div class="row">
           <div class="col-4 mx-auto" style="width: 200px">
-            <h1 id="city">
-              Rivne
-              </h1>
-              <h2 class="date">
-                <span id="currentDay"></span> <br />
-                <span id="currentDate"></span> <br />
-                <span id="currentHour"></span>
-              </h2>
-            </h1>
+            <h1 id="city">Rivne</h1>
+            <h2 class="date">
+              <span id="currentDay"></span> <br />
+              <span id="currentDate"></span> <br />
+              <span id="currentHour"></span>
+            </h2>
           </div>
           <div class="col-4 mx-auto" style="width: 200px">
             <div class="degree">
-            <span class="temperature" id="temperature"></span>
-            <span class="units">
-                  <a href="#" class="active" id="celsius-link">°C</a> |
-                  <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-          </div>
-            <img src="" id="icon">
+              <span class="temperature" id="temperature"></span>
+              <span class="units">
+                <a href="#" class="active" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+            </div>
+            <img src="" id="icon" />
           </div>
           <div class="col-4 mx-auto" style="width: 220px">
             <ul>
@@ -55,55 +50,16 @@
             </ul>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="feture">
-              Wed<br />
-              ☁️<br />
-              17°C
-            </div>
-          </div>
-          <div class="col">
-            <div class="feture">
-              Thu<br />
-              ⛈<br />
-              15°C
-            </div>
-          </div>
-          <div class="col">
-            <div class="feture">
-              Fri<br />
-              🌥<br />
-              16°C
-            </div>
-          </div>
-          <div class="col">
-            <div class="feture">
-              Sat<br />
-              🌤<br />
-              19°C
-            </div>
-          </div>
-          <div class="col">
-            <div class="feture">
-              Sun<br />
-              ☀️<br />
-              22°C
-            </div>
-          </div>
-          <div class="col">
-            <div class="feture">
-              Sun<br />
-              ☀️<br />
-              22°C
-            </div>
-          </div>
-        </div>
+
+        <div class="forecast" id="forecast"></div>
       </div>
       <div class="small">
-           <a href="https://github.com/oksanaNekh/My_project"target="_blank"> Open-source code, </a> by Oksana Nekh
+        <a href="https://github.com/oksanaNekh/My_project" target="_blank">
+          Open-source code,
+        </a>
+        by Oksana Nekh
       </div>
     </div>
-    <script src="src/script.js"> </script>
+    <script src="src/script.js"></script>
   </body>
 </html>
