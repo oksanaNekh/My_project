@@ -22,7 +22,7 @@ function displayForecast(response) {
         <img
           alt="icon"
           width="36"
-          src="http://openweathermap.org/img/wn/${
+          src="https://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
           }@2x.png"
         />
